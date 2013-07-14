@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <style type="text/css">
+    body {
+      background-color: #FFFFFF;
+    }
+    p {
+      font-family: Georgia;
+      font-size: 16px;
+      font-color: #000000;
+      font-weight: bold;
+    }
+    h1{
+      font-family: Georgia;
+      color: #00008B;
+    }
+    p.divider{
+      font-style: italic;
+      line-height: 1.5;
+      color: #00008B;
+    }
+    p.results{
+      color: #8B0000;
+      font-size: 20px;
+    }
+  </style>
+  <body>
+    <h1>The Coolest Rock, Paper, Scissors Game...Ever</h1>
+    <p>Enter a throw choice:</p>
+    <form method='post' action='/throw'>
+      <input name='choice' type='text'/>
+      <input type='submit'/>
+    </form>
+    <p>(Choose one: Rock, Paper, or Scissors)</p>
+    <%= yield %>
+  </body>
+</html>
