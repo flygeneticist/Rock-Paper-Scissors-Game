@@ -6,7 +6,9 @@ require 'sinatra/reloader' if development?
 # setup array of valid moves that player and computer can perform
 before do
   content_type = :txt
-  @defeat = {rock: :scissors, paper: :rock, scissors: :paper}
+  @defeat = {rock: :scissors, rock: :lizard, paper: :rock, paper: :spock,
+            scissors: :paper, scissors: :lizard, lizard: :spock, spock: :scissors,
+            spock: :rock, lizard: :paper}
   @throws = @defeat.keys
 end
 
@@ -14,7 +16,7 @@ get '/' do
   erb :form # loads main layout page
 end
 
-post '/throw' do
+post '/' do
   redirect '/throw/'+params['choice'].downcase.to_s
 end
 
@@ -28,6 +30,10 @@ get '/throw/:type' do
       then '/paper.jpg'
     when :scissors
       then '/scissor.jpg'
+    when :lizard
+      then '/lizard.jpg'
+    when :spock
+      then '/spock.jpg'
     end
 
   # if player makes invalid pick halt code with 403 status (Forbidden)
@@ -44,6 +50,10 @@ get '/throw/:type' do
       then '/paper.jpg'
     when :scissors
       then '/scissor.jpg'
+    when :lizard
+      then '/lizard.jpg'
+    when :spock
+      then '/spock.jpg'
     end
 
   if player_throw == computer_throw
