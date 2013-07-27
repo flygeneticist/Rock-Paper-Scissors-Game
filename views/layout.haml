@@ -1,0 +1,12 @@
+%html
+  %head
+    %title Rock, Paper, Scissors
+    %link(rel='stylesheet' href='/application.css')
+  %body
+    %h2 The Coolest Rock, Paper, Scissors, Lizard, Spock Game!
+    %p Enter a throw choice:
+    %form(id='user_input' method='post' action='/')
+      %input(name='choice' type='text')
+      %input(type='submit')
+    %p Choose one: Rock, Paper, Scissors, Lizard, Spock
+    =yield

@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'sinatra'
 require 'sinatra/reloader' if development?
+require 'haml'
 
 #before prossessing a move set responce as plain text
 # setup array of valid moves that player and computer can perform
@@ -13,7 +14,7 @@ before do
 end
 
 get '/' do
-  erb :form # loads main layout page
+  haml :form # loads main layout page
 end
 
 post '/' do
@@ -38,7 +39,7 @@ get '/throw/:type' do
 
   # if player makes invalid pick halt code with 403 status (Forbidden)
   if !@throws.include?(player_throw)
-    halt 403, "You must throw one of the following: #{@throws}"
+    haml :wrong_pick
   end
 
   # computer throw randomly picked and compared to player's
@@ -63,5 +64,5 @@ get '/throw/:type' do
   else
     @result = "Ouch; #{computer_throw} beats #{player_throw}. Better luck next time!"
   end
-  erb :results
+  haml :results
 end

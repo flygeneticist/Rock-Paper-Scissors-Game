@@ -1,1 +1,0 @@
-web: bundle exec rps_game.rb -p $PORT
