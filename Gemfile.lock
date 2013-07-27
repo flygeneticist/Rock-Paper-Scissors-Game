@@ -30,4 +30,3 @@ DEPENDENCIES
   pry
   sinatra
   thin
-  haml
